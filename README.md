@@ -33,7 +33,8 @@ This tool is intended for scientific researchers and bioinformaticians intereste
 - **`NeCEMask.csv`** and **`SixtyTwentyMask.csv`**:
   - `NeCEMask.csv`: Identifies near-cognate substitutions where only one nucleotide change could explain the amino acid substitution.
   - `SixtyTwentyMask.csv`: Marks invalid cells either as cognate codons or indistinguishable substitutions due to mass similarities with other substitutions or modifications.
-Both CSV files are crucial for plotting the heatmap of substitutions in `subsToSixtyTwentyWithMask.py`.
+
+  Both CSV files are crucial for plotting the heatmap of substitutions in `subsToSixtyTwentyWithMask.py`.
 
 - **`plot_intensity_ratio.py`**: Generates histograms of intensity ratios, illustrating the quantitative difference between peptides with and without substitutions, thereby providing insights into the impact of these variations.
 
