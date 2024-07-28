@@ -43,9 +43,7 @@ This tool is intended for scientific researchers and bioinformaticians intereste
 
 ## Installation
 
-Describe how to install the project, e.g.,
-
 ```bash
-git clone https://yourprojectlink.git
+git clone https://github.com/t3hi1a/detectAminoAcidSubstitutions.git
 cd yourprojectdirectory
 pip install -r requirements.txt
