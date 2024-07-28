@@ -23,15 +23,24 @@ This tool is intended for scientific researchers and bioinformaticians intereste
 
 ## Files Description
 
-- `danger_mods_new_unimods.pkl`: A pickled data file containing [describe the data and its usage in the project].
-- `detect.py`: Script for detecting [describe what it detects and how it's used].
-- `main.py`: The main entry point for the project. This script [describe its role].
-- `NeCEMask.csv`: CSV file containing [describe the contents and how they are used].
-- `plot_intensity_ratio.py`: This script generates plots for [describe what it plots].
-- `run`: Bash script to run the project. This script simplifies the execution process.
-- `SixtyTwentyMask.csv`: Contains [describe data].
-- `subsToSixtyTwentyWithMask.py`: Script to [describe its function].
-- `subsUtils.py`: Utility functions used across the project. It includes functions to [describe types of utilities].
+## Files Description
+
+- **`danger_mods_new_unimods.pkl`**: Contains a table of protein modifications sourced from [UniMod](https://www.unimod.org/). This file helps eliminate mass changes due to post-translational modifications (PTMs) or artifacts, which are not from substitutions.
+
+- **`detect.py`**: Processes 'dependentPeptides.txt' and 'peptides.txt' from MaxQuant output, along with a FASTA file (ideally DNA FASTA to facilitate codon identification). It outputs a table 'subs.csv' listing all detected substitutions, ensuring gene names match those used in MaxQuant.
+
+- **`main.py`**: The central script that orchestrates the project workflow. It integrates functionalities from all other scripts, executes `detect.py`, and generates both a histogram of intensity ratios and a heatmap of substitution counts.
+
+- **`NeCEMask.csv`** and **`SixtyTwentyMask.csv`**:
+  - `NeCEMask.csv`: Identifies near-cognate substitutions where only one nucleotide change could explain the amino acid substitution.
+  - `SixtyTwentyMask.csv`: Marks invalid cells either as cognate codons or indistinguishable substitutions due to mass similarities with other substitutions or modifications. Both CSV files are crucial for plotting the heatmap of substitutions in `subsToSixtyTwentyWithMask.py`.
+
+- **`plot_intensity_ratio.py`**: Generates histograms of intensity ratios, illustrating the quantitative difference between peptides with and without substitutions, thereby providing insights into the impact of these variations.
+
+- **`subsToSixtyTwentyWithMask.py`**: Processes 'subs.csv' to produce a heatmap detailing the frequency of each type of substitution (e.g., codon to amino acid) in the sample, providing a visual representation of substitution patterns.
+
+- **`subsUtils.py`**: Contains essential utility functions that support operations in `detect.py`, including various data manipulation and processing tasks.
+
 
 ## Installation
 
