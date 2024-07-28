@@ -1,5 +1,3 @@
-# Project Title
-
 # LC-MS Phenotypic Variation Detector
 
 This project is designed to process LC-MS results, specifically those analyzed by MaxQuant, to detect amino acid substitutions within proteins and identify phenotypic variations potentially caused by mutations, transcription errors, translation errors, or post-translational modifications (PTMs). It is particularly useful for researchers focused on understanding and analyzing phenotypic variations and their underlying causes.
