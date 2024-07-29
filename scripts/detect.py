@@ -9,9 +9,8 @@ Created on 2024
 import numpy as np
 import pandas as pd
 from pathlib import Path
-import subsUtils
-from Bio import SeqIO
-from Bio import Seq
+from . import subsUtils
+from Bio import SeqIO, Seq
 
 
 def parse_list_in_df(df_cell):

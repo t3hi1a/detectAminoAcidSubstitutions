@@ -2,8 +2,8 @@ import sys
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
-import detect
-import subsToSixtyTwentyWithMask
+
+from scripts import detect_main, confusion_matrix
 import configparser
 
 CONFIG_FILE = 'config.ini'
@@ -28,12 +28,12 @@ def load_config(config_file):
 if __name__ == '__main__':
     dp_tb, pep_tb, dna_file, proteins_file, output_dir = load_config(CONFIG_FILE)
 
-    subs = detect.main(dp_tb, pep_tb, dna_file, proteins_file, output_dir)
+    subs = detect_main(dp_tb, pep_tb, dna_file, proteins_file, output_dir)
 
     # if dna fasta was provided and the substitutions were mapped to
     subs_codons = subs[subs.codon != 'None']
     if not subs_codons.empty:
-        subsToSixtyTwentyWithMask.main(subs_codons, output_dir)
+        confusion_matrix(subs_codons, output_dir)
 
     plt.figure()
     sns.histplot(subs['log_intensities_ratio'])
