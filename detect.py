@@ -52,14 +52,16 @@ def filter_localization_threshold(dp):
 
 
 def map_to_prot_and_filter_contaminants(path_to_peptides, dp):
-    peptides_cols = ["Reverse", "Potential contaminant", "Sequence", "Start position", "Leading razor protein", "Unique (Proteins)"]
+    peptides_cols = ["Reverse", "Potential contaminant", "Sequence", "Start position", "Leading razor protein",
+                     "Unique (Proteins)"]
 
     # filter out contaminants and decoys, and add information
     peptides = pd.read_csv(path_to_peptides, sep="\t", usecols=peptides_cols)
     dp = dp.merge(peptides, how="left", left_on="Base peptide sequence", right_on="Sequence")
     dp = dp[dp["Potential contaminant"] != "+"]
     dp = dp[dp["Reverse"] != "+"]  # not suppose to exist, but better safe than sorry
-    dp = dp[~(dp["Leading razor protein"].str.contains('REV'))]     # for some reason, the filter for reverse itself is not good enough
+    dp = dp[~(dp["Leading razor protein"].str.contains(
+        'REV'))]  # for some reason, the filter for reverse itself is not good enough
     dp['Start position'] = dp['Start position'].map(int) - 1
     return dp
 
@@ -78,6 +80,7 @@ def remove_duplicates_from_fasta(fasta_file):
         if (identifier, sequence) not in unique_sequences:
             unique_sequences[(identifier, sequence)] = record
     return unique_sequences.values()
+
 
 #
 # def remove_duplicates_from_fasta(fasta_file):
@@ -302,7 +305,7 @@ def main(dependent_peptides_path, peptides_path, dna_fasta_path=None, aa_fasta_p
     path_to_peptides = Path(peptides_path)
 
     # Define constants
-    tol = 0.005     # tolerance for variation of mass
+    tol = 0.005  # tolerance for variation of mass
 
     # %% code
     dp, bp_cols, str_fasta = get_dp_table_and_clean(path_to_dependentpeptides, path_to_peptides,
@@ -324,10 +327,8 @@ if __name__ == '__main__':
     AA_FASTA_PATH = DATA_PATH / 'new.modheader.all_nonsyn.fasta'
     OUTPUT_PATH = Path(r'../results')
 
-
     subs = main(dependent_peptides_path=DP_PATH,
                 peptides_path=PEP_PATH,
                 dna_fasta_path=DNA_FASTA_PATH,
                 aa_fasta_path=AA_FASTA_PATH,
                 output_dir=OUTPUT_PATH)
-
