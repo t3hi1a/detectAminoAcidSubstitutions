@@ -2,15 +2,15 @@
 import os.path
 
 import pandas as pd
-# import seaborn.apionly as sns
+import seaborn as sns
 import matplotlib.pyplot as plt
 from itertools import groupby
 import matplotlib as mpl
 import numpy as np
 from matplotlib.patches import Rectangle
 
-
-mpl.rcParams.update(mpl.rcParamsDefault)
+mpl.use('TkAgg')
+# mpl.rcParams.update(mpl.rcParamsDefault)
 
 GENCODE = {
     'ATA': 'I', 'ATC': 'I', 'ATT': 'I', 'ATG': 'M',
@@ -227,6 +227,7 @@ def main(subs, output_path):
 
 
 if __name__ == '__main__':
-    output_dir = os.path.join('..', 'results')
-    data_place = os.path.join('..', 'results', 'subs.csv')
-    main(output_dir, suffix)
+    output_dir = os.path.join('results')
+    data_path = os.path.join('results', 'subs.csv')
+    data = pd.read_csv(data_path)
+    main(data, output_dir)
