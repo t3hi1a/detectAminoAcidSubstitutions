@@ -82,25 +82,6 @@ def remove_duplicates_from_fasta(fasta_file):
     return unique_sequences.values()
 
 
-#
-# def remove_duplicates_from_fasta(fasta_file):
-#     """This function reads a FASTA file, removes duplicate gene sequences based on the gene identifier,
-#     and writes the unique sequences to a new output file. If there are multiple sequences with the same identifier
-#     but different sequences, only the first occurrence is retained."""
-#     unique_identifiers = set()
-#     unique_sequences = {}
-#
-#     for record in SeqIO.parse(fasta_file, "fasta"):
-#         identifier = str(record.id)
-#
-#         # Check if the identifier is already processed
-#         if identifier not in unique_identifiers:
-#             unique_identifiers.add(identifier)
-#             # Use the identifier as the key to avoid duplicates based on it
-#             unique_sequences[identifier] = record
-#     return unique_sequences.values()
-
-
 def map_protein_to_sequence(dna_fasta_path, aa_fasta_path, dp):
     dna_mapped, aa_mapped, dna_str_fasta, aa_str_fasta = pd.DataFrame(), pd.DataFrame(), '', ''
     len_dp = len(dp)
