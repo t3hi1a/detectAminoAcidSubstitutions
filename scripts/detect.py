@@ -11,6 +11,9 @@ import pandas as pd
 from pathlib import Path
 from . import subsUtils
 from Bio import SeqIO, Seq
+import pkg_resources
+
+
 
 
 def parse_list_in_df(df_cell):
@@ -121,7 +124,7 @@ def get_error_position(dp):
 
 def get_known_ptms(dp, tol):
     # Handles mass differences that can be explained as PTMs
-    danger_mods = pd.read_pickle('danger_mods_new_unimods.pkl')
+    danger_mods = pd.read_pickle(Path(r'scripts/utilities/danger_mods_new_unimods.pkl'))
     dp['ptm'] = False
     for ind, mod in danger_mods.iterrows():
         position = mod['position']
