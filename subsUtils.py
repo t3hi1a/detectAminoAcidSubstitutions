@@ -249,7 +249,7 @@ def is_mispairing(row, mask):
     Returns whether the substitution is mispairing or misloading, based on the
     near-cognate mask.
     """
-    codon = row['codon']
+    codon = str(row['codon'])
     destination = row['destination']
     if pd.notnull(codon) and pd.notnull(destination):
         if (codon in mask.index) and destination:
