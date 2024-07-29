@@ -50,7 +50,7 @@ destination_col = 'destination'
 codon_col = 'codon'
 protein_col = 'Leading razor protein'
 position_col = 'position'
-MASK_PATH = 'SixtyTwentyMask.csv'
+MASK_PATH = '../SixtyTwentyMask.csv'
 
 
 def choose_first(stringy):
@@ -198,7 +198,7 @@ def open_and_reformat_mask():
 
 
 def nece_idx(sixty_twenty_idx, sixty_twenty_cols):
-    nece = pd.read_csv("NeCEMask.csv", index_col=0)
+    nece = pd.read_csv("../NeCEMask.csv", index_col=0)
     #sort it as the 61x20
     nece = nece.reindex(sixty_twenty_cols, axis=1)
     nece = nece.reindex(sixty_twenty_idx)
