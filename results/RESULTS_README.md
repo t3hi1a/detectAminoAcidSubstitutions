@@ -11,6 +11,38 @@ The results include, but are not limited to:
 - **sixtyTwenty.csv**: A detailed table showing the counts of each type of substitution observed in the study. This table is crucial for understanding the frequency and distribution of near-cognate and non-cognate substitutions.
 - **LogSixtyTwenty.png** and **SixtyTwenty.png**: These PNG files contain graphics representing the data in `sixtyTwenty.csv`. They provide a visual summary of substitution counts, making it easier to identify patterns and trends at a glance.
 
+### subs.csv
+Each row in the table represents 1 event detected of amino acid substitution. Must columns are identical to the ones at 'dependentPeptides.txt' table.
+Here's a description for each column:
+
+- Unnamed: 0: An identifier or index column that likely serves as an internal reference or unique identifier for each row.
+- bp_sequence: The base peptide sequence before any modification.
+- dp_sequence: The dependent peptide sequence after modification.
+- origin: The original amino acid in the base peptide sequence that was substituted.
+- destination: The new amino acid in the dependent peptide sequence after substitution.
+- substitution: The specific amino acid substitution from the original to the derived sequence.
+- mispairing: A boolean indicating whether there was a mispairing error - meaning that the substitution was near-cognate.
+- Leading razor protein: Identifier for the primary or most representative protein associated with the peptide.
+- position: The position of the amino acid substitution in the protein sequence.
+- error_position_in_pep: The position of the substitution within the peptide sequence.
+- Posterior error probability: The probability that a detected peptide is incorrect, calculated using a posterior probability approach.
+- Score: Andromeda score for the best associated MS/MS spectrum.
+- codon: The specific codon in the DNA sequence that codes for the amino acid in the peptide sequence.
+- Localization: Base peptide sequence combined with the localization
+- probability of possible canidates for the modification
+- Max Probability: The highest probability value associated with the substitution localization, indicating the most likely correct result.
+- Modification: MaxQuant identifies some dependent peptides as modifications, by they mass change only. This algorithm is less sensitive than ours. For 
+example, change of isoleucine to aspargine would be detected as 'Deamidation', although isoleucine doesn't have an amide group. Our pipeline includes PTM filtering step that takes into account also the identity of the amino acid and it's position in the peptide/protein (C/N teminal)
+- dna_seq: The DNA sequence corresponding to the leading razor protein.
+- protein_seq: The complete leading razor protein sequence from which the peptide is derived.
+- bp_intensity: The intensity measurement of the base peptide sequence in the assay.
+- Unique (Proteins): Indicates whether the peptide sequence is unique to a specific protein or shared among several.
+- Mass difference: The difference in mass between the base and derived peptide due to modifications.
+- Time difference: Time difference in the detection or processing of the base and derived peptides.
+- dp_intensity: The intensity measurement of the derived dependent sequence in the assay.
+- dp/bp_intensities_ratio: The ratio of intensities between the dependent and base peptide sequences.
+- log_intensities_ratio: The logarithm of the intensity ratio, providing a normalized measure of intensity changes.
+
 ## Note
 
 Please ensure that the scripts are run with the correct parameters and that the input data files are appropriately formatted and located in the `data` directory. This ensures that the results generated are accurate and consistent with the expected outputs provided here.
