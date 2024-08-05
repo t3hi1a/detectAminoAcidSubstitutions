@@ -38,4 +38,5 @@ if __name__ == '__main__':
     plt.figure()
     sns.histplot(subs['log_intensities_ratio'])
     plt.savefig(os.path.join(output_dir, "intensity_ratio_distribution.png"))
-    # test
+
+    # STAM
