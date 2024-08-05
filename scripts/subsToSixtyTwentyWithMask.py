@@ -10,7 +10,7 @@ import numpy as np
 from matplotlib.patches import Rectangle
 
 
-mpl.use('TkAgg')
+mpl.use('Agg')
 # mpl.rcParams.update(mpl.rcParamsDefault)
 
 GENCODE = {
