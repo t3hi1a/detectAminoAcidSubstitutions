@@ -2,6 +2,7 @@ import sys
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
+from pathlib import Path
 
 from scripts import detect_main, confusion_matrix
 import configparser
@@ -15,13 +16,13 @@ def load_config(config_file):
     config.read(config_file)
 
     # Retrieve paths from the configuration file
-    output_dir = config['Paths']['output_dir']
+    output_dir = Path(config['Paths']['output_dir'])
 
     # Retrieve file names from the configuration file
-    dp_tb = config['Paths']['dependentpeptides_file']
-    pep_tb = config['Paths']['peptides_file']
-    dna_file = config['Paths']['dna_file']
-    proteins_file = config['Paths']['proteins_file']
+    dp_tb = Path(config['Paths']['dependentpeptides_file'])
+    pep_tb = Path(config['Paths']['peptides_file'])
+    dna_file = Path(config['Paths']['dna_file'])
+    proteins_file = Path(config['Paths']['proteins_file'])
     return dp_tb, pep_tb, dna_file, proteins_file, output_dir
 
 
