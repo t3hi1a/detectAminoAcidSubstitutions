@@ -24,10 +24,13 @@ Make sure the FASTA file used in MaxQuant contains the same identifiers as the F
 
 ### Installation of the piepline
 ```bash
-git lfs install
-git lfs clone https://github.com/t3hi1a/detectAminoAcidSubstitutions.git
+git clone https://github.com/t3hi1a/detectAminoAcidSubstitutions.git
 cd detectAminoAcidSubstitutions
 pip install -r requirements.txt
+```
+to test the pipeline on the example files:
+```bash
+unzip data.zip
 ```
 
 ### Configuring the Python Pipeline
