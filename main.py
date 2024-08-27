@@ -17,8 +17,6 @@ def load_config(config_file):
 
     # Retrieve paths from the configuration file
     output_dir = Path(config['Paths']['output_dir'])
-
-    # Retrieve file names from the configuration file
     dp_tb = Path(config['Paths']['dependentpeptides_file'])
     pep_tb = Path(config['Paths']['peptides_file'])
     dna_file = Path(config['Paths']['dna_file'])
