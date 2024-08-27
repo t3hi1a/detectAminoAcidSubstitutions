@@ -1,4 +1,0 @@
-/data/fasta_files/Homo_sapiens.GRCh38.cds.all.fa filter=lfs diff=lfs merge=lfs -text
-/data/fasta_files/Homo_sapiens.GRCh38.pep.all.fa filter=lfs diff=lfs merge=lfs -text
-/data/maxquant_output/dependentPeptides.txt filter=lfs diff=lfs merge=lfs -text
-/data/maxquant_output/peptides.txt filter=lfs diff=lfs merge=lfs -text
