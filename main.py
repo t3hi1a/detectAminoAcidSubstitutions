@@ -12,7 +12,7 @@ CONFIG_FILE = 'config.ini'
 def load_config(config_file):
     # Load configuration file
     config = configparser.ConfigParser()
-    config.read('config.ini')
+    config.read(config_file)
 
     # Retrieve paths from the configuration file
     output_dir = config['Paths']['output_dir']
